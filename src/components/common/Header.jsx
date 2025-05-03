@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import LogoImg from "../assets/images/logo-black.png"
+import LogoImg from "../assets/images/logoCDLR.png"
 import { LinkData } from "../assets/data/dummydata"
 import { NavLink } from "react-router-dom"
 import { BiShoppingBag } from "react-icons/bi"
@@ -12,10 +12,10 @@ export const Header = () => {
       <header className='bg-white py-4 text-black sticky z-50 shadow-md top-0 left-0 w-full'>
         <div className='container flex justify-between items-center'>
           <div className='logo flex items-center gap-6'>
-            <img src={LogoImg} alt='logo' className='h-5' />
+            <img src={LogoImg} alt='logo' className='w-8' />
             <div className='category flex items-center text-sm gap-3'>
               <HiViewGrid size={20} />
-              <span>category</span>
+              <span className="font-bold">chemin de la reussite</span>
             </div>
           </div>
           <nav className={open ? "mobile-view" : "desktop-view"}>
