@@ -6,7 +6,9 @@ import { About } from "./pages/About"
 import { Courses } from "./pages/Courses"
 import { Blog } from "./pages/Blog"
 import { Instructor } from "./pages/Instructor"
-import Login from "./pages/auth/register"
+import Login from "./pages/auth/login-user"
+import Register from "./pages/auth/register-user"
+import Dashboard from "./pages/dashboard/user/dashboard"
 
 function App() {
   return (
@@ -61,11 +63,19 @@ function App() {
               </Layout>
             }
           />
-           <Route
-            path='/register'
+          <Route
+            path='/login'
             element={
               <Layout>
                 <Login />
+              </Layout>
+            }
+          />
+          <Route
+            path='/register'
+            element={
+              <Layout>
+                <Register />
               </Layout>
             }
           />
