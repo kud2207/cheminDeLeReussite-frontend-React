@@ -79,6 +79,12 @@ function App() {
               </Layout>
             }
           />
+          <Route
+            path='/dashboard'
+            element={
+                <Dashboard />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </>
