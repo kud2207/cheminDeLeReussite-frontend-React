@@ -9,6 +9,7 @@ import { Instructor } from "./pages/Instructor"
 import Login from "./pages/auth/login-user"
 import Register from "./pages/auth/register-user"
 import Dashboard from "./pages/dashboard/user/dashboard"
+import BlenderText from "./components/VR/blender-text"
 
 function App() {
   return (
@@ -85,7 +86,12 @@ function App() {
                 <Dashboard />
             }
           />
-
+                    <Route
+            path='/123'
+            element={
+                <BlenderText                />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </>
