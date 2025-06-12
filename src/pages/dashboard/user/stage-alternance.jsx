@@ -21,9 +21,9 @@ export default function StageAlternance() {
   };
 
   return (
-    <div className="flex gap-6 min-h-[500px]">
+    <div className="flex gap-6 sm:flex-col min-h-[500px]">
       {/* Partie gauche avec boutons */}
-      <div className="w-1/4 bg-white p-4  shadow space-y-4 max-h-64">
+      <div className=" bg-white p-4  shadow space-y-4 max-h-64 ">
         <button
           className={`w-full py-3 px-4 flex items-center mt-4 gap-3  text-left ${activeTab === 'stage' ? 'bg-orange-400 text-white' : 'bg-gray-100 hover:bg-gray-200'}`}
           onClick={() => setActiveTab('stage')}

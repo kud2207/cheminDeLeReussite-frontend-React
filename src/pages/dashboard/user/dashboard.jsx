@@ -3,11 +3,11 @@ import { FaUser, FaBell, FaGraduationCap, FaFileAlt, FaComments, FaBriefcase, Fa
 import logoCDLR from '../logoCDLR.png'
 import StageAlternance from "./stage-alternance" 
 import CommunautMmessage from "./communaute-message"
+import GeminiLearningApp from "./cours-ia"
+import NotificationUser from "./notification-user"
 // Composants factices pour démonstration :
 const Profile = () => <div>Profil Utilisateur</div>
-const Notifications = () => <div>Notifications</div>
 const KudAI = () => <div>Bienvenue dans KUD-IA</div>
-const Courses = () => <div>Liste des cours</div>
 const Settings = () => <div>Paramètres</div>
 
 const Dashboard = () => {
@@ -20,11 +20,11 @@ const Dashboard = () => {
             case "profile":
                 return <Profile />
             case "notifications":
-                return <Notifications />
+                return <NotificationUser />
             case "kud-ai":
                 return <KudAI />
             case "courses":
-                return <Courses />
+                return <GeminiLearningApp />
             case "community":
                 return <CommunautMmessage />
             case "Stages/Alternances":
@@ -76,7 +76,7 @@ const Dashboard = () => {
                         </button>
                         <div className="flex items-center gap-2">
                             <div className="h-5 w-5 rounded-full bg-green-400 animate-ping"></div>
-                            <span className="text-lg">KAGEU ULRICH</span>
+                            <span className="text-lg">User Name</span>
                         </div>
                     </div>
                 </header>

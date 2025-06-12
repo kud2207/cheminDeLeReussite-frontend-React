@@ -39,10 +39,35 @@ export const posts = [
 ];
 
 const AlternanceUser = () => {
-  const [position, setPosition] = useState(2); // index starts at 0
+  const [position, setPosition] = useState(2);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [selectedTitle, setSelectedTitle] = useState('');
+  const [progress, setProgress] = useState(0);
+
+  const handlePostuler = (title) => {
+    setLoading(true);
+    setSelectedTitle(title);
+    localStorage.setItem('postule', title);
+    
+    setProgress(0); // Reset progress
+    const interval = setInterval(() => {
+      setProgress((oldProgress) => {
+        if (oldProgress === 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+            setLoading(false);
+            setIsModalOpen(true);
+          }, 500); // Delay before showing the modal
+          return 100;
+        }
+        return Math.min(oldProgress + 20, 100); // Increase progress
+      });
+    }, 200); // Adjust the interval timing as needed
+  };
 
   return (
-    <div className="w-full px-4 py-6 flex flex-col items-start justify-center">
+    <div className="w-full px-4 sm:px-0 py-6 flex flex-col items-start justify-center">
       <h2 className="text-2xl font-bold mb-6">Stage | Alternance</h2>
 
       <div className="relative h-[500px] w-full flex items-center justify-start overflow-hidden">
@@ -54,7 +79,7 @@ const AlternanceUser = () => {
             return (
               <div
                 key={index}
-                className={`absolute w-[340px] h-[440px] transition-all duration-500 ease-in-out rounded-xl p-4 bg-white text-center transform 
+                className={`absolute w-[340px] sm:w-full h-[440px] transition-all duration-500 ease-in-out rounded-xl p-4 bg-white text-center transform 
                   ${isActive ? 'scale-105 border-2 border-gray-300 shadow-2xl' : 'scale-95 border border-gray-300 shadow-md opacity-80'}
                 `}
                 style={{
@@ -71,7 +96,12 @@ const AlternanceUser = () => {
                 <h3 className="text-lg font-semibold">{post.title}</h3>
                 <p className="text-sm text-gray-600 mt-2">Date limite : {post.deadline}</p>
                 <div className="mt-4 flex justify-center gap-3">
-                  <button className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition">Postuler</button>
+                  <button
+                    onClick={() => handlePostuler(post.title)}
+                    className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition"
+                  >
+                    Postuler
+                  </button>
                   <button className="bg-gray-200 text-gray-700 px-3 py-1 rounded hover:bg-gray-300 transition">Détails</button>
                 </div>
               </div>
@@ -80,7 +110,7 @@ const AlternanceUser = () => {
         </div>
       </div>
 
-      {/* Boutons de navigation */}
+      {/* Navigation buttons */}
       <div className="flex gap-3 mt-5 self-center">
         {posts.map((_, index) => (
           <button
@@ -92,6 +122,32 @@ const AlternanceUser = () => {
           ></button>
         ))}
       </div>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white rounded-lg p-6 shadow-lg text-center">
+            <h3 className="text-xl font-semibold">Postulation réussie!</h3>
+            <p className="mt-2">Vous avez postulé pour : {selectedTitle}</p>
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+            >
+              Fermer
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Loading Bar */}
+      {loading && (
+        <div className="w-full h-2 bg-gray-200 mt-4">
+          <div
+            className="h-full bg-blue-600"
+            style={{ width: `${progress}%`, transition: 'width 0.2s' }}
+          />
+        </div>
+      )}
     </div>
   );
 };

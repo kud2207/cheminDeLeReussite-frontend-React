@@ -18,7 +18,7 @@ export const Header = () => {
           <img src={LogoImg} alt='logo' className='w-8' />
           <div className='category flex items-center text-sm gap-3'>
             <HiViewGrid size={20} />
-            <span className="font-bold">chemin de la reussite</span>
+            <span className="font-bold sm:none">chemin de la reussite</span>
           </div>
         </div>
 

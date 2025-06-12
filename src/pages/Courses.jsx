@@ -21,7 +21,7 @@ export const Courses = () => {
             {courses.map((item) => (
               <div className='box rounded-lg shadow-shadow1 bg-white'>
                 <div className='images rounded-t-lg relative overflow-hidden h-40 w-ful '>
-                  <img src={item.cover} alt='' className='cursor-wait rounded-t-lg object-cover w-full h-full transition ease-in-out delay-150 cursor-pointer hover:scale-125 duration-300' />
+                  <img src={item.cover} alt='' className='rounded-t-lg object-cover w-full h-full transition ease-in-out delay-150 cursor-pointer hover:scale-125 duration-300' />
                   <div className='categ flex gap-4 absolute top-0 m-3'>
                     <span className='text-[14px] bg-blue-700 p-1 px-3 text-white rounded-[5px] shadow-md cursor-pointer'>Start</span>
                     <span className='text-[14px] bg-green-700 p-1 px-3 text-white rounded-[5px] shadow-md cursor-pointer'>Continue</span>

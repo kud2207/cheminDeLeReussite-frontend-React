@@ -69,7 +69,7 @@ export const stages = [
 
 export const StageUser = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-6">
+    <div className="grid grid-cols-1  lg:grid-cols-3 xl:grid-cols-4 gap-6 p-6 sm:p-0">
       {stages.map(stage => (
         <div key={stage.id} className="card bg-white shadow-md border rounded-lg overflow-hidden">
           <figure className="bg-slate-50 p-4">
