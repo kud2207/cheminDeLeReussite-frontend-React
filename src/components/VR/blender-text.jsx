@@ -18,7 +18,7 @@ const BlenderText = () => {
       }
     });
   }, []);
-
+ 
   return (
     <div style={{ 
       width: '100vw', 

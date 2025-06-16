@@ -10,6 +10,7 @@ import Login from "./pages/auth/login-user"
 import Register from "./pages/auth/register-user"
 import Dashboard from "./pages/dashboard/user/dashboard"
 import BlenderText from "./components/VR/blender-text"
+import SuperUserPost from "./pages/dashboard/super-user/super-user-post"
 
 function App() {
   return (
@@ -22,6 +23,12 @@ function App() {
               <Layout>
                 <Home />
               </Layout>
+            }
+          />
+                    <Route
+            path='/post'
+            element={
+              <SuperUserPost  />
             }
           />
           <Route
@@ -83,13 +90,13 @@ function App() {
           <Route
             path='/dashboard'
             element={
-                <Dashboard />
+              <Dashboard />
             }
           />
-                    <Route
+          <Route
             path='/123'
             element={
-                <BlenderText                />
+              <BlenderText />
             }
           />
         </Routes>
